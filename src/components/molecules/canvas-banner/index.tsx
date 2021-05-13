@@ -1,0 +1,71 @@
+import React, { useRef, useEffect } from "react";
+import {
+  CanvasSpace,
+  Circle,
+  Pt,
+  Group,
+  Line,
+  Create,
+  Bound,
+  CanvasForm,
+} from "pts";
+import { Space } from "./styles";
+
+function CanvasBanner() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      playAnimation();
+    }
+  }, []);
+  function playAnimation() {
+    const space = new CanvasSpace("canvas");
+    var pts = new Group();
+    let form = space.getForm();
+
+    space.background = "#252934";
+    space.add({
+      // creatr 200 random points
+      start: (bound) => {
+        pts = Create.distributeRandom(space.innerBound, 100);
+        console.log(space.ctx);
+      },
+      resize: (bound) => {
+        space.play();
+      },
+
+      animate: (time, ftime) => {
+        // make a line and turn it into an "op" (see the guide on Op for more)
+        let perpend = new Group(space.center.$subtract(0.1), space.pointer).op(
+          Line.perpendicularFromPt
+        );
+        pts.rotate2D(0.01, space.center);
+
+        pts.forEach((p, i) => {
+          // for each point, find the perpendicular to the line
+          let ln = p.$subtract(space.center.$add(0.1));
+          let mag = ln.magnitude();
+          let lp = perpend(p);
+          const c = Circle.fromCenter(
+            space.center,
+            p.$subtract(space.center).abs().magnitude()
+          );
+          form
+            .fillOnly(["#f03", "#09f", "#0c6"][i % 3])
+            .point(p, 1)
+            .fill(false);
+          let point = new Pt(space.center);
+          point.rotate2D(0.0005, space.center);
+          form.stroke("rgba(255,255,255,.2)").circle(c);
+          form.fill(false);
+        });
+      },
+    });
+
+    //// ----
+    space.play();
+  }
+
+  return <Space id="canvas"></Space>;
+}
+
+export default CanvasBanner;

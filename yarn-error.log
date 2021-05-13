@@ -1,0 +1,58 @@
+Arguments: 
+  D:\ProgramFiles\nodejs\node.exe C:\Users\samg2\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  D:\ProgramFiles\cmder_mini\bin;D:\ProgramFiles\cmder_mini\vendor\bin;D:\ProgramFiles\cmder_mini\vendor\conemu-maximus5\ConEmu\Scripts;D:\ProgramFiles\cmder_mini\vendor\conemu-maximus5;D:\ProgramFiles\cmder_mini\vendor\conemu-maximus5\ConEmu;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\ProgramFiles\nodejs\;D:\ProgramFiles\flutter_windows_v1.12.13+hotfix.8-stable\flutter\bin;D:\ProgramFiles\Java\jdk1.8.0_241\bin;D:\ProgramFiles\androidSdk\platform-tools;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\PuTTY\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\ProgramFiles\Git\cmd;C:\Users\samg2\AppData\Local\Microsoft\WindowsApps;C:\Users\samg2\AppData\Roaming\npm;C:\Users\samg2\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\samg2\AppData\Local\Microsoft\WindowsApps;D:\ProgramFiles\Git\mingw64\bin;D:\ProgramFiles\Git\usr\bin;D:\ProgramFiles\cmder_mini
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.16.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:64:26)
+
+npm manifest: 
+  {
+    "name": "portfolio-v2",
+    "version": "1.0.0",
+    "private": true,
+    "description": "portfolio-v2",
+    "author": "Samuel Mejia",
+    "keywords": [
+      "gatsby"
+    ],
+    "scripts": {
+      "develop": "gatsby develop",
+      "start": "gatsby develop",
+      "build": "gatsby build",
+      "serve": "gatsby serve",
+      "clean": "gatsby clean"
+    },
+    "dependencies": {
+      "babel-plugin-styled-components": "^1.12.0",
+      "gatsby": "^3.4.0",
+      "gatsby-plugin-image": "^1.4.0",
+      "gatsby-plugin-react-helmet": "^4.4.0",
+      "gatsby-plugin-sharp": "^3.4.0",
+      "gatsby-plugin-sitemap": "^4.0.0",
+      "gatsby-plugin-styled-components": "^4.4.0",
+      "gatsby-source-filesystem": "^3.4.0",
+      "gatsby-transformer-sharp": "^3.4.0",
+      "react": "^17.0.1",
+      "react-dom": "^17.0.1",
+      "react-helmet": "^6.1.0",
+      "styled-components": "^5.2.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
