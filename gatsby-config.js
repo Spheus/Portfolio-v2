@@ -15,7 +15,6 @@ module.exports = {
       options: {
         configFile: `${__dirname}/tsconfig.json`,
         silent: true,
-        colors: false,
       },
     },
 

@@ -10,7 +10,7 @@
       "config": ["config"]
     },
     "typeRoots": ["custom-typings", "node_modules/@types"],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noUnusedLocals": true,
@@ -29,8 +29,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "experimentalDecorators": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "colors": false
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.jsx", "**/*.js"]
 }
