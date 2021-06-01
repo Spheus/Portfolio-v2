@@ -1,58 +1,63 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { CanvasSpace, Circle, Pt, Group, Line, Create } from "pts";
 import { Space } from "./styles";
 import useStores from "hooks/useStores";
+import theme from "lib/styles/theme";
 
 function CanvasBanner() {
-  const {
-    useTheme: { palette },
-  } = useStores();
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      playAnimation();
+  let canvasSpace: CanvasSpace;
+
+  function getRandomColor() {
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
     }
-  }, []);
+    return color;
+  }
+
+  const {
+    useTheme: { palette, isDark },
+  } = useStores();
+  const { darkTheme, lightTheme } = theme;
+  const color = isDark ? lightTheme.palette.body : darkTheme.palette.body;
+
+  useLayoutEffect(() => {
+    if (typeof window !== "undefined" && !canvasSpace) {
+      canvasSpace = playAnimation();
+    }
+    return function cleanup() {
+      if (canvasSpace) canvasSpace.dispose();
+    };
+  }, [isDark]);
 
   function playAnimation() {
     const space = new CanvasSpace("canvas");
-    var pts = new Group();
+    let pts: Group;
     let form = space.getForm();
-
-    space.background = '#ffffff';
+    space.background = color;
     space.add({
-      // creatr 200 random points
       start: (bound) => {
         pts = Create.distributeRandom(space.innerBound, 50);
-        console.log(space.ctx);
-      },
-      resize: (bound) => {
-        space.play();
       },
 
       animate: (time, ftime) => {
-        // make a line and turn it into an "op" (see the guide on Op for more)
-        let perpend = new Group(space.center.$subtract(0.1), space.pointer).op(
-          Line.perpendicularFromPt
-        );
         pts.rotate2D(0.003, space.center);
 
         pts.forEach((p, i) => {
-          // for each point, find the perpendicular to the line
-          let ln = p.$subtract(space.center.$add(0.1));
-          let mag = ln.magnitude();
-          let lp = perpend(p);
           const c = Circle.fromCenter(space.center, p.magnitude());
-          form.fillOnly(["#b2b2b2"][i]).point(p, 1).fill(false);
+          form.fillOnly(["#b2b2b2"][i]).point(p, 1, "circle").fill(false);
           let point = new Pt(space.center);
           point.rotate2D(0.0005, space.center);
+
           form.stroke("#666666").circle(c);
-          form.fill(false);
+          form.fill(true);
         });
       },
     });
 
     //// ----
-    space.play();
+    return space.bindMouse().bindTouch().play();
   }
 
   return <Space id="canvas"></Space>;

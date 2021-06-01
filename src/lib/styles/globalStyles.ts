@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.palette.text};
     font-family: ${fonts.primary};
     transition: all 0.50s linear;
+    font-weight: 400;
   }
 
 

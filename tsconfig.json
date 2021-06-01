@@ -29,9 +29,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "experimentalDecorators": true,
-    "downlevelIteration": true,
-    "colors": false
+    "downlevelIteration": true
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "**/*.jsx", "**/*.js"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.jsx", "**/*.js","src/lib/definitions/svg.d.ts"]
 }

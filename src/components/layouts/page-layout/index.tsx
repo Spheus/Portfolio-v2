@@ -3,6 +3,7 @@ import { PageLayoutStyled } from "./styles";
 import { ThemeProvider } from "styled-components";
 import theme from "lib/styles/theme";
 import GlobalStyles from "lib/styles/globalStyles";
+import NavHeader from "components/molecules/nav-header";
 
 function PageLayout({ children }: { children: ReactNode }) {
   const [isDark, setTheme] = useState(true);
@@ -11,9 +12,19 @@ function PageLayout({ children }: { children: ReactNode }) {
     setTheme(!isDark);
   };
   return (
-    <ThemeProvider theme={isDark ? theme.darkTheme : theme.lightTheme}>
+    <ThemeProvider
+      theme={
+        isDark
+          ? { ...theme.darkTheme, isDark }
+          : { ...theme.lightTheme, isDark }
+      }
+    >
       <GlobalStyles />
-      <PageLayoutStyled>{children}</PageLayoutStyled>
+
+      <PageLayoutStyled>
+        <NavHeader onClick={changeTheme} toggle={isDark} />
+        {children}
+      </PageLayoutStyled>
     </ThemeProvider>
   );
 }

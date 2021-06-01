@@ -7,10 +7,10 @@ import PageLayout from "components/layouts/page-layout";
 // markup
 const IndexPage = () => {
   return (
-      <PageLayout>
-        <CanvasBanner></CanvasBanner>
-        <AnimatedBanner></AnimatedBanner>
-      </PageLayout>
+    <PageLayout>
+      <CanvasBanner></CanvasBanner>
+      <AnimatedBanner></AnimatedBanner>
+    </PageLayout>
   );
 };
 
