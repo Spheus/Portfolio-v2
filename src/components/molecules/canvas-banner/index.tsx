@@ -1,20 +1,11 @@
 import React, { useEffect, useLayoutEffect } from "react";
 import { CanvasSpace, Circle, Pt, Group, Line, Create } from "pts";
-import { Space } from "./styles";
+import { Name, Space, SubHeader } from "./styles";
 import useStores from "hooks/useStores";
 import theme from "lib/styles/theme";
 
 function CanvasBanner() {
   let canvasSpace: CanvasSpace;
-
-  function getRandomColor() {
-    var letters = "0123456789ABCDEF";
-    var color = "#";
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
 
   const {
     useTheme: { palette, isDark },
@@ -46,7 +37,7 @@ function CanvasBanner() {
 
         pts.forEach((p, i) => {
           const c = Circle.fromCenter(space.center, p.magnitude());
-          form.fillOnly(["#b2b2b2"][i]).point(p, 1, "circle").fill(false);
+          form.fillOnly(["#b2b2b2"][i]).point(p, 1.5, "circle").fill(false);
           let point = new Pt(space.center);
           point.rotate2D(0.0005, space.center);
 
@@ -60,7 +51,13 @@ function CanvasBanner() {
     return space.bindMouse().bindTouch().play();
   }
 
-  return <Space id="canvas"></Space>;
+  return (
+    <>
+      <Space id="canvas"></Space>
+      <Name>SAM MEJIA</Name>
+      <SubHeader>Product Builder</SubHeader>
+    </>
+  );
 }
 
 export default CanvasBanner;

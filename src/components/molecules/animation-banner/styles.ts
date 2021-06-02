@@ -19,7 +19,7 @@ export const Character = styled.div`
 `;
 
 export const CharacterSprite = styled.img`
-  animation: ${moveSpritesheet} 0.5s steps(4) infinite;
+  animation: ${moveSpritesheet} 0.2s steps(4) infinite;
   width: ${512 * pixelSize}px;
   position: absolute;
   image-rendering: pixelated;
