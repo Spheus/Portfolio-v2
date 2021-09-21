@@ -1,36 +1,65 @@
-import styled from "styled-components";
+import { queries } from "lib/styles/media";
 import theme from "lib/styles/theme";
-
-const { lightTheme, darkTheme } = theme;
+import styled from "styled-components";
 export const Space = styled.canvas`
   width: 100%;
-  max-height: 440px;
+  height: 100%;
 `;
 
-export const Name = styled.h1`
+export const Links = styled.div`
+  position: absolute;
   margin: 0px;
-  text-align: center;
-  position: relative;
-  bottom: 250px;
-  z-index: 2;
-  font-size: 4rem;
-  font-weight: 400;
-
-  color: ${(props) =>
-    props.theme.isDark ? lightTheme.palette.text : darkTheme.palette.text};
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-flow: column;
+  bottom: 0px;
+  left: 50px;
+  display: none;
+  @media ${queries.large} {
+    display:inherit;
+  }
+  color: ${theme.darkTheme.palette.text};
+  hr {
+    margin: 1rem 10px 0px 8px;
+    width: 0.5px;
+    height: 100px;
+    border: 1px solid transparent;
+    border-left: 1px solid ${theme.darkTheme.palette.text};
+  }
 `;
 
-export const SubHeader = styled.h2`
-  margin: 0px;
-  text-align: center;
-  position: relative;
-  bottom: 250px;
-  z-index: 2;
-  font-size: 2rem;
-  font-weight: 300;
+export const Mail = styled.div`
+  font-family: monospace;
+  writing-mode: vertical-rl;
 
-  color: ${(props) =>
-    props.theme.isDark
-      ? lightTheme.palette.contrastText
-      : darkTheme.palette.contrastText};
+  position: absolute;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+  bottom: 5px;
+  right: 50px;
+  font-size:12px;
+  color: ${theme.darkTheme.palette.text};
+  hr {
+    margin: 1rem 0px 0px 0px;
+    width: 0.5px;
+    height: 100px;
+    border: 1px solid transparent;
+    border-left: 1px solid ${theme.darkTheme.palette.text};
+  }
+`;
+
+export const Link = styled.a`
+  margin-top: 1.5rem;
+  cursor: pointer;
+  font-weight: 100;
+
+  display: flex;
+  align-items: center;
+  svg {
+    height: 18px;
+    width: 18px;
+  }
 `;

@@ -23,34 +23,35 @@ function NavHeader({ toggle, onClick }: Props) {
   return (
     <>
       <NavigationContainer>
-        <Triangle onClick={onClick} toggle={toggle}></Triangle>
-
         <Container>
           <List>
-            <NavItem>About</NavItem>
-            <NavItem>Services</NavItem>
-            <NavItem>Portfolio</NavItem>
-            <NavItem>Contact</NavItem>
-            <Link>
-              <MdLanguage /> ES
-            </Link>
+            <NavItem>
+              <span>01.&nbsp;</span> About
+            </NavItem>
+            <NavItem>
+              <span>02.&nbsp;</span>Services
+            </NavItem>
+            <NavItem>
+              <span>03.&nbsp;</span>Portfolio
+            </NavItem>
+            <NavItem>
+              <span>04.&nbsp;</span>Contact
+            </NavItem>
+            <Links>
+              <Link>
+                <AiFillGithub />
+              </Link>
+              <Link>
+                <FiCodepen />
+              </Link>
+              <Link>
+                <AiFillLinkedin />
+              </Link>
+              <Link>
+                <FiMail />
+              </Link>
+            </Links>
           </List>
-          <Links>
-            <Link>
-              <AiFillGithub />
-            </Link>
-            <Link>
-              <FiCodepen />
-            </Link>
-            <Link>
-              <AiFillLinkedin />
-            </Link>
-            <Link>
-              <FiMail />
-            </Link>
-
-            <Link onClick={onClick}>{toggle ? <FaMoon /> : <FaSun />}</Link>
-          </Links>
         </Container>
       </NavigationContainer>
     </>

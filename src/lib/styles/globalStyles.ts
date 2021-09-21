@@ -1,18 +1,42 @@
 import { createGlobalStyle } from "styled-components";
 import theme from "./theme";
 
-const { fonts } = theme;
+const { fonts, queries } = theme;
 
 const GlobalStyles = createGlobalStyle`
   body {
-    background: ${({ theme }) => theme.palette.body};
-    color: ${({ theme }) => theme.palette.text};
-    font-family: ${fonts.primary};
+    font-size:20px;
+    font-family: "Calibre","Inter","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;;
     transition: all 0.50s linear;
     font-weight: 400;
+    margin: 0px;
+    
+    overflow:hidden;
+    h1, h2, h3, h4, h5, h6{
+      font-weight:600;
+
+    }
+   a {
+     @media ${queries.large}{
+       
+     }
+   }
+
+    & ::-webkit-scrollbar {
+  display: none;
+    }
+    @media (max-width: 480px) {
+      font-size: 18px
+    }
+
+  
   }
 
-
+  @font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
 `;
 export default GlobalStyles;
 /* 
