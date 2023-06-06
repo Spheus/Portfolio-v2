@@ -94,7 +94,7 @@ export default function Home() {
                       className="group-hover/korok:text-red-400 transition duration-75 group-hover/korok:-translate-y-px delay-[50ms]"
                       aria-hidden="true"
                     >
-                      K
+                      Korok
                     </span>
                     <span
                       className="group-hover/korok:text-orange-400 transition duration-75 group-hover/korok:-translate-y-px delay-[75ms]"
