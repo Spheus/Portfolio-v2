@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Header from "./components/Header";
+import Pill from "./components/pill";
 
 export default function Home() {
   return (
@@ -72,7 +73,7 @@ export default function Home() {
                   >
                     Upstatement
                   </a>
-                  . In my free time I've also released an{" "}
+                  . In my free time I´ve also released an{" "}
                   <a
                     className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
                     href="https://www.newline.co/courses/build-a-spotify-connected-app"
@@ -238,41 +239,10 @@ export default function Home() {
                           className="mt-2 flex flex-wrap"
                           aria-label="Technologies used"
                         >
-                          <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
-                              React
-                            </div>
-                          </li>
-                          <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
-                              React Native
-                            </div>
-                          </li>
-                          <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
-                              SCSS
-                            </div>
-                          </li>
-                          <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
-                              WordPress
-                            </div>
-                          </li>
-                          <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
-                              JavaScript
-                            </div>
-                          </li>
-                          <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
-                              TypeScript
-                            </div>
-                          </li>
-                          <li className="mr-1.5 mt-2">
-                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
-                              PHP
-                            </div>
-                          </li>
+                         
+                          <Pill text="React Native" />
+                          <Pill text="PhP" />
+
                         </ul>
                       </div>
                     </div>
@@ -280,7 +250,7 @@ export default function Home() {
                 </ol>
                 <div className="mt-12">
                   <a
-                    className="inline-flex items-center font-medium leading-tight text-slate-200 font-semibold text-slate-200 group"
+                    className="inline-flex items-center  leading-tight font-semibold text-slate-200 group"
                     aria-label="View Full Résumé"
                     href="/resume.pdf"
                   >
@@ -363,7 +333,7 @@ export default function Home() {
                           Express, React, Styled Components, and more.
                         </p>
                       </div>
-                      <img
+                      <Image
                         alt=""
                         loading="lazy"
                         width="200"
@@ -372,14 +342,13 @@ export default function Home() {
                         data-nimg="1"
                         className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
                         src="/_next/image?url=%2Fimages%2Fprojects%2Fcourse-card.png&amp;w=256&amp;q=75 1x, /_next/image?url=%2Fimages%2Fprojects%2Fcourse-card.png&amp;w=640&amp;q=75 2x"
-                        src="/_next/image?url=%2Fimages%2Fprojects%2Fcourse-card.png&amp;w=640&amp;q=75"
                       />
                     </div>
                   </li>
                 </ul>
                 <div className="mt-12">
                   <a
-                    className="inline-flex items-center font-medium leading-tight text-slate-200 font-semibold text-slate-200 group"
+                    className="inline-flex items-center leading-tight font-semibold text-slate-200 group"
                     aria-label="View Full Project Archive"
                     href="/archive"
                   >
