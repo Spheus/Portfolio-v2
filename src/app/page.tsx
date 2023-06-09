@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Header from "./components/Header";
 import Pill from "./components/pill";
+import { AnimationExample } from "./components/canvas";
 
 export default function Home() {
   return (
     <>
-      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+      <AnimationExample name="w-full h-full absolute inset-0	z-0" background="transparent" play={true} />
+      <div className="mx-auto min-h-screen max-w-screen-xl relative px-6 z-10 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
           <Header />
           <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
@@ -14,19 +16,19 @@ export default function Home() {
               className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
               aria-label="About me"
             >
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-0 z-10 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
                   About
                 </h2>
               </div>
-              <div>
+              <div >
                 <p className="mb-4">
                   Back in 2012, I decided to try my hand at creating custom
                   Tumblr themes and tumbled head first into the rabbit hole of
                   coding and web development. Fast-forward to today, and I’ve
                   had the privilege of building software for an{" "}
                   <a
-                    className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                    className="inline-block text-teal-300 transition ease-in-out delay-50  hover:scale-105 duration-300"
                     href="https://us.mullenlowe.com/"
                     target="_blank"
                     rel="noreferrer"
@@ -35,7 +37,7 @@ export default function Home() {
                   </a>
                   , a{" "}
                   <a
-                    className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                    className="inline-block text-teal-300 transition ease-in-out delay-50  hover:scale-105 duration-300"
                     href="https://starry.com/"
                     target="_blank"
                     rel="noreferrer"
@@ -44,7 +46,7 @@ export default function Home() {
                   </a>
                   , a{" "}
                   <a
-                    className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                    className="inline-block text-teal-300 transition ease-in-out delay-50  hover:scale-105 duration-300"
                     href="https://scout.camd.northeastern.edu/"
                     target="_blank"
                     rel="noreferrer"
@@ -53,7 +55,7 @@ export default function Home() {
                   </a>
                   , and a{" "}
                   <a
-                    className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                    className="inline-block text-teal-300 transition ease-in-out delay-50  hover:scale-105 duration-300"
                     href="https://www.apple.com/apple-music/"
                     target="_blank"
                     rel="noreferrer"
@@ -194,9 +196,9 @@ export default function Home() {
                               aria-label="Lead Engineer at Upstatement"
                             >
                               <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                              <span>
+                              <span className="transition-transform group-hover/link:-translate-y-1  group-focus-visible/link:-translate-y-1  motion-reduce:transition-none  translate-y-px">
                                 Lead Engineer{" "}
-                                <span className="inline-block">
+                                <span className="inline-block ">
                                   Upstatement
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -239,10 +241,8 @@ export default function Home() {
                           className="mt-2 flex flex-wrap"
                           aria-label="Technologies used"
                         >
-                         
                           <Pill text="React Native" />
                           <Pill text="PhP" />
-
                         </ul>
                       </div>
                     </div>
