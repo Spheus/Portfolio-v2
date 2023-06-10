@@ -10,7 +10,7 @@ export const AnimationExample = ({ name, background, play }) => {
 
   const handleStart = useCallback(
     (bound, space) => {
-      const points = Create.distributeRandom(space.innerBound, 10);
+      const points = Create.distributeRandom(space.innerBound, 20);
       setPts(points);
     },
     [setPts]
@@ -26,8 +26,8 @@ export const AnimationExample = ({ name, background, play }) => {
       pts.forEach((p, i) => {
         // for each point, find the perpendicular to the line
         let lp = perpend(p);
-       
-        form.strokeOnly("#88eedf99", 1).line( [p, lp.$subtract([lp.x / 2, 0])]);
+
+        form.strokeOnly("#88eedf99", 1).line([p, lp.$subtract([lp.x / 2, 0])]);
 
         form.fillOnly(["#88eedf99"]).point(p, 1);
       });
@@ -37,7 +37,7 @@ export const AnimationExample = ({ name, background, play }) => {
 
   const handleResize = useCallback(
     (space) => {
-      const points = Create.distributeRandom(space.innerBound, 10);
+      const points = Create.distributeRandom(space.innerBound, 20);
       setPts(points);
     },
     [setPts]
