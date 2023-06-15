@@ -6,10 +6,10 @@ function Header() {
           <a href="/">Sam Mejia</a>
         </h1>
         <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-          Lead Engineer at Upstatement
+          Software Engineer
         </h2>
         <p className="mt-4 max-w-xs leading-normal">
-          I build accessible, inclusive products and digital experiences for the
+          I build products and digital experiences for the
           web.
         </p>
         <nav className="nav hidden lg:block" aria-label="In-page jump links">
