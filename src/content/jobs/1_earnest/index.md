@@ -5,6 +5,7 @@ company: 'Earnest.com'
 location: 'San Francisco, CA'
 range: '2022 - 2023'
 url: 'https://www.earnest.com'
+technologies: ['PostgresSQL', 'AWS', 'GraphQL', 'Express','Jenkins']
 ---
 
 

@@ -1,15 +1,14 @@
 import About from "../components/About";
 import ExperienceCard from "../components/ExperienceCard";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import PageLink from "../components/PageLink";
 import ProjectCard from "../components/ProjectCard";
 import { AnimatedCanvas } from "../components/canvas";
-import { getJobNames } from "../services/getJobData";
+import { getJobNames } from "../services/getMarkDownData";
 import { Suspense } from "react";
 
 async function Home() {
   const jobs = await getJobNames();
-  console.log(jobs);
 
   return (
     <>
