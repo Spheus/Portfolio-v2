@@ -5,7 +5,7 @@ import React, { useCallback, useState, useMemo, useEffect } from "react";
 import { Pt, Group, Line, Create, Sound, Triangle, Const, Geom } from "pts";
 import { PtsCanvas } from "react-pts-canvas";
 
-export const AnimationExample = ({ name, background, play }) => {
+export const AnimatedCanvas = ({ name, background, play }) => {
   const [pts, setPts] = useState([]);
 
   const handleStart = useCallback(
