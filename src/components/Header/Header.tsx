@@ -45,7 +45,7 @@ function Header() {
         <li className="mr-5 text-xs">
           <a
             className="block hover:text-slate-200"
-            href="https://github.com/bchiang7"
+            href="https://github.com/Spheus"
             target="_blank"
             rel="noreferrer"
           >
@@ -64,7 +64,7 @@ function Header() {
         <li className="mr-5 text-xs">
           <a
             className="block hover:text-slate-200"
-            href="https://instagram.com/bchiang7"
+            href="https://instagram.com/samg252"
             target="_blank"
             rel="noreferrer"
           >
@@ -83,7 +83,7 @@ function Header() {
         <li className="mr-5 text-xs">
           <a
             className="block hover:text-slate-200"
-            href="https://twitter.com/bchiang7"
+            href="https://twitter.com/samg25"
             target="_blank"
             rel="noreferrer"
           >
@@ -105,7 +105,7 @@ function Header() {
         <li className="mr-5 text-xs">
           <a
             className="block hover:text-slate-200"
-            href="https://www.linkedin.com/in/bchiang7/"
+            href="https://www.linkedin.com/in/samuel-mejia-613a8780/"
             target="_blank"
             rel="noreferrer"
           >
