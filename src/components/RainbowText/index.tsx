@@ -1,7 +1,7 @@
 function RainbowText({ text = "" }) {
   const textArray = text.split("");
   const defaultColors = [
-    "group-hover/korok:text-red-400 delay-[]",
+    "group-hover/korok:text-red-400",
     "group-hover/korok:text-orange-400",
     "group-hover/korok:text-yellow-400",
     "group-hover/korok:text-lime-400",
