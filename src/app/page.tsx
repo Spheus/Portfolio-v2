@@ -21,7 +21,11 @@ async function Home() {
         <div className="lg:flex lg:justify-between lg:gap-4">
           <Header />
           <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
-            <About />
+            <Suspense fallback={<p>Loading feed...</p>}>
+              {/* @ts-expect-error Server Component */}
+
+              <About />
+            </Suspense>
             <section
               id="experience"
               className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
@@ -35,11 +39,9 @@ async function Home() {
               <div>
                 <ol className="group/list">
                   {jobs.fileNames.map((job, index) => (
-                    <Suspense
-                      key={job + index}
-                      fallback={<p>Loading feed...</p>}
-                    >
+                    <Suspense key={job + index}>
                       {/* @ts-expect-error Server Component */}
+
                       <ExperienceCard jobName={job} />
                     </Suspense>
                   ))}

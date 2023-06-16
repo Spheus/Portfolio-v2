@@ -3,6 +3,11 @@ import { readdir, readFile } from "fs/promises";
 import { remark } from "remark";
 import html from "remark-html";
 import matter from "gray-matter";
+import rehypeRaw from "rehype-raw";
+import remarkParse from "remark-parse/lib";
+import remarkRehype from "remark-rehype/lib";
+import rehypeStringify from "rehype-stringify/lib";
+import rehypeSanitize from "rehype-sanitize";
 
 const jobsDirectory = "jobs";
 
@@ -37,8 +42,11 @@ export async function getMarkDownData(
   const matterResult = matter(fileContents);
 
   const processedContent = await remark()
-    .use(html)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeStringify)
     .process(matterResult.content);
+
   const contentHtml = processedContent.toString();
 
   return {

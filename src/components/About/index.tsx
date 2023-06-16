@@ -1,6 +1,8 @@
+import { getMarkDownData } from "@/services/getMarkDownData";
 import RainbowText from "../RainbowText";
 
-function About() {
+async function About() {
+  const about = await getMarkDownData("about");
   return (
     <section
       id="about"
@@ -13,64 +15,14 @@ function About() {
         </h2>
       </div>
       <div>
-        <p className="mb-4">
-          Back in 2014, I decided to try my hand at creating custom Tumblr
-          themes and tumbled head first into the rabbit hole of coding and web
-          development. Fast-forward to today, and I’ve had the privilege of
-          building software for an{" "}
-          <a
-            className="inline-block text-teal-300 transition ease-in-out delay-50  hover:scale-105 duration-300"
-            href="https://us.mullenlowe.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            advertising agency
-          </a>
-          , a{" "}
-          <a
-            className="inline-block text-teal-300 transition ease-in-out delay-50  hover:scale-105 duration-300"
-            href="https://starry.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            start-up
-          </a>
-          , a{" "}
-          <a
-            className="inline-block text-teal-300 transition ease-in-out delay-50  hover:scale-105 duration-300"
-            href="https://scout.camd.northeastern.edu/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            student-led design studio
-          </a>
-          , and a{" "}
-          <a
-            className="inline-block text-teal-300 transition ease-in-out delay-50  hover:scale-105 duration-300"
-            href="https://www.apple.com/apple-music/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            huge corporation
-          </a>
-          .
-        </p>
-        <p className="mb-4">
-          My main focus these days is building products and leading projects for
-          our clients at{" "}
-          <a
-            className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
-            href="https://upstatement.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Earnest
-          </a>
-        </p>
+        <article
+          className="mb-4"
+          dangerouslySetInnerHTML={{ __html: about.contentHtml }}
+        ></article>
         <p>
           When I’m not at the computer, I’m usually working out, hanging out
-          with my dog, or running around Hyrule searching for{" "}
-          <RainbowText text="Korok Seeds" />.
+          with my friends, or running around Super Mario searching for{" "}
+          <RainbowText text="Super Stars ." />
         </p>
       </div>
     </section>
