@@ -11,9 +11,9 @@ import rehypeSanitize from "rehype-sanitize";
 
 const jobsDirectory = "jobs";
 
-export async function getJobNames() {
+export async function getSubFolderNames(directory: string) {
   const fileNames = await readdir(
-    path.join(`${process.cwd()}/src/content`, jobsDirectory)
+    path.join(`${process.cwd()}/src/content`, directory)
   );
 
   return {
@@ -27,8 +27,8 @@ type MarkDownData = {
   [key: string]: any;
 };
 
-export async function getJobData(directory: string): Promise<MarkDownData> {
-  const jobs = await getMarkDownData(`${jobsDirectory}/${directory}`);
+export async function getData(directory: string): Promise<MarkDownData> {
+  const jobs = await getMarkDownData(`${directory}`);
   return jobs;
 }
 
