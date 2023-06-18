@@ -1,3 +1,4 @@
+import Image from "next/image";
 import About from "../components/About";
 import ExperienceCard from "../components/ExperienceCard";
 import Header from "../components/Header/Header";

@@ -1,16 +1,25 @@
+import Image from "next/image";
+
 function Header() {
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+      <Image
+        className="shadow-slate-400 shadow-md sm:my-3	 rounded-full"
+        src="/images/pixel_art.png"
+        width={250}
+        height={250}
+        alt=""
+      />
+
       <div>
-        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
+        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl mt-5">
           <a href="/">Sam Mejia</a>
         </h1>
         <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
           Software Engineer
         </h2>
         <p className="mt-4 max-w-xs leading-normal">
-          I build products and digital experiences for the
-          web.
+          I build products and digital experiences for the web.
         </p>
         <nav className="nav hidden lg:block" aria-label="In-page jump links">
           <ul className="mt-16 w-max">
