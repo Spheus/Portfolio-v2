@@ -1,6 +1,9 @@
+import { getData } from "@/services/getMarkDownData";
 import Image from "next/image";
+import Pill from "../Pill";
 
-function ProjectCard() {
+async function ProjectCard({ projectName }: { projectName?: string }) {
+  const project = await getData(`projects/${projectName}`);
   return (
     <li className="mb-12">
       <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
@@ -9,16 +12,15 @@ function ProjectCard() {
           <h3>
             <a
               className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300  group/link text-base"
-              href="https://www.newline.co/courses/build-a-spotify-connected-app"
+              href={project.url}
               target="_blank"
               rel="noreferrer"
               aria-label="Build a Spotify Connected App"
             >
               <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
               <span>
-                Build a Spotify Connected{" "}
+                {project.title}
                 <span className="inline-block">
-                  App
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
@@ -36,12 +38,17 @@ function ProjectCard() {
               </span>
             </a>
           </h3>
-          <p className="mt-2 text-sm leading-normal">
-            Video course that teaches how to build a web app with the Spotify
-            Web API. Topics covered include the principles of REST APIs, user
-            auth flows, Node, Express, React, Styled Components, and more.
-          </p>
+          <article
+            className="mt-2 text-sm leading-normal"
+            dangerouslySetInnerHTML={{ __html: project.contentHtml }}
+          ></article>
+          <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+            {project?.technologies.map((val: string) => (
+              <Pill key={val} text={val} />
+            ))}
+          </ul>
         </div>
+
         <Image
           alt=""
           loading="lazy"
@@ -50,7 +57,7 @@ function ProjectCard() {
           decoding="async"
           data-nimg="1"
           className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
-          src="/_next/image?url=%2Fimages%2Fprojects%2Fcourse-card.png&amp;w=256&amp;q=75 1x, /_next/image?url=%2Fimages%2Fprojects%2Fcourse-card.png&amp;w=640&amp;q=75 2x"
+          src={project.imageUrl}
         />
       </div>
     </li>

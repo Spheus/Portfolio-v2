@@ -4,11 +4,12 @@ import Header from "../components/Header/Header";
 import PageLink from "../components/PageLink";
 import ProjectCard from "../components/ProjectCard";
 import { AnimatedCanvas } from "../components/canvas";
-import { getJobNames } from "../services/getMarkDownData";
+import { getSubFolderNames } from "../services/getMarkDownData";
 import { Suspense } from "react";
 
 async function Home() {
-  const jobs = await getJobNames();
+  const jobs = await getSubFolderNames("jobs");
+  const projects = await getSubFolderNames("projects");
 
   return (
     <>
@@ -60,9 +61,19 @@ async function Home() {
               </div>
               <div>
                 <ul className="group/list">
-                  <ProjectCard />
+                  <Suspense fallback={<p>Loading feed...</p>}>
+                    {projects.fileNames.map((project) => (
+                      <>
+                        {/* @ts-expect-error Server Component */}
+                        <ProjectCard projectName={project} key={project} />
+                      </>
+                    ))}
+                  </Suspense>
                 </ul>
-                <PageLink text="View Full Project Archive" href="/archive" />
+                <PageLink
+                  text="View Full Project Archive"
+                  href="https://github.com/Spheus"
+                />
               </div>
             </section>
           </main>
