@@ -1,6 +1,6 @@
 import { getData } from "@/services/getMarkDownData";
 import Image from "next/image";
-import Pill from "../../app/Pill";
+import Pill from "../Pill";
 
 async function ProjectCard({ projectName }: { projectName?: string }) {
   const project = await getData(`projects/${projectName}`);
