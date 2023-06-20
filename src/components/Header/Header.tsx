@@ -9,6 +9,7 @@ function Header() {
         width={250}
         height={250}
         alt=""
+        priority={true}
       />
 
       <div>
