@@ -1,6 +1,7 @@
 import { getData } from "@/services/getMarkDownData";
 import Pill from "../Pill";
 
+
 async function ExperienceCard({ jobName }: { jobName: string }) {
   const job = await getData(`jobs/${jobName}`);
   return (
