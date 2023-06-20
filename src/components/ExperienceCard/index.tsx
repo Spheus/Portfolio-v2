@@ -1,5 +1,5 @@
 import { getData } from "@/services/getMarkDownData";
-import Pill from "../Pill";
+import Pill from "../../app/Pill";
 
 
 async function ExperienceCard({ jobName }: { jobName: string }) {
