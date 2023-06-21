@@ -1,8 +1,18 @@
-//@ts-nocheck
 "use client"; // This is a client component 👈🏽
 
 import React, { useCallback, useState, useMemo, useEffect } from "react";
-import { Pt, Group, Line, Create, Sound, Triangle, Const, Geom } from "pts";
+import {
+  Pt,
+  Group,
+  Line,
+  Create,
+  Sound,
+  CanvasForm as Form,
+  Triangle,
+  Const,
+  Geom,
+  Vec,
+} from "pts";
 import { PtsCanvas } from "react-pts-canvas";
 
 export const AnimatedCanvas = ({ name, background, play }) => {
@@ -10,25 +20,42 @@ export const AnimatedCanvas = ({ name, background, play }) => {
 
   const handleStart = useCallback(
     (bound, space) => {
-      const points = Create.distributeRandom(space.innerBound, 20);
+      const points = Create.distributeRandom(space.innerBound, 30).map(
+        (p, i) => {
+          p.brightness = 0.7;
+          return p;
+        }
+      );
+
       setPts(points);
     },
     [setPts]
   );
 
   const handleAnimate = useCallback(
-    (space, form, time) => {
+    (space, form: Form, time) => {
+      let perpend = new Group(
+        new Pt(space.width / 2, space.heigth * 1.5),
+        new Pt(space.width * 1.5, window.innerHeight * 0.5)
+      ).op(Line.perpendicularFromPt);
       if (!space) return;
-      let perpend = new Group(new Pt(), new Pt(space.width, 0)).op(
-        Line.perpendicularFromPt
-      );
-      pts.rotate2D(0.0005, space.center);
-      pts.forEach((p, i) => {
+      var center = space.size.$divide(1.8);
+
+      pts.forEach((p: Pt, i) => {
         // for each point, find the perpendicular to the line
-        let lp = perpend(p);
+        p.rotate2D(Const.one_degree / 20, center);
 
-        form.strokeOnly("#88eedf99", 1).line([p, lp.$subtract([lp.x / 2, 0])]);
+        const ln = new Group(p, perpend(p));
+        const distFromMouse = Math.abs(Line.distanceFromPt(ln, center));
 
+        if (distFromMouse > 100) {
+          if (p.brightness < 0.3) p.brightness += 0.015;
+        } else {
+          if (p.brightness > 0.1) p.brightness -= 0.01;
+        }
+        const color = "rgba(136,238,223," + p.brightness + ")";
+
+        form.strokeOnly(color, 1).line(ln);
         form.fillOnly(["#88eedf99"]).point(p, 1);
       });
     },
@@ -37,7 +64,12 @@ export const AnimatedCanvas = ({ name, background, play }) => {
 
   const handleResize = useCallback(
     (space) => {
-      const points = Create.distributeRandom(space.innerBound, 20);
+      const points = [];
+      Create.distributeRandom(space.innerBound, 30).forEach((p, i) => {
+        p.brightness = 0.5;
+        points.push(p.rotate2D(0.2));
+      });
+
       setPts(points);
     },
     [setPts]

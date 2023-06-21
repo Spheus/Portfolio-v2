@@ -15,7 +15,7 @@ async function Home() {
   return (
     <>
       <AnimatedCanvas
-        name="w-full h-full absolute inset-0	z-0"
+        name="w-full h-screen  fixed top-0	 inset-0	z-0"
         background="transparent"
         play={true}
       />
