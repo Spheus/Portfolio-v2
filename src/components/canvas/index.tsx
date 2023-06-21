@@ -1,5 +1,7 @@
-"use client"; // This is a client component 👈🏽
 //@ts-nocheck
+
+"use client"; // This is a client component 👈🏽
+
 import React, { useCallback, useState, useMemo, useEffect } from "react";
 import {
   Pt,
