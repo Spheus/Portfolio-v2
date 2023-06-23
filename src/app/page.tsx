@@ -7,6 +7,7 @@ import ProjectCard from "../components/ProjectCard";
 import { AnimatedCanvas } from "../components/canvas";
 import { getSubFolderNames } from "../services/getMarkDownData";
 import { Suspense } from "react";
+import Head from "next/head";
 
 async function Home() {
   const jobs = await getSubFolderNames("jobs");
@@ -14,6 +15,22 @@ async function Home() {
 
   return (
     <>
+      <Head>
+        <title>Sam Mejia</title>
+        <meta property="og:title" content="Sam Mejia" />
+
+        <meta
+          name="description"
+          content="
+          Software Engineer, I build products and digital Assets for the web."
+          key="desc"
+        />
+        <meta
+          property="og:description"
+          content="Software Engineer, I build products and digital Assets for the web."
+        />
+        <meta property="og:image" content="/images/og_image.png" />
+      </Head>
       <AnimatedCanvas
         name="w-full h-screen  fixed top-0	 inset-0	z-0"
         background="transparent"
