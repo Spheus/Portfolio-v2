@@ -5,11 +5,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Sam Mejia",
-  description: "Software developer, i build digital assets for the web.",
+  description: "Software developer, i build digital assets for the web, focusing on quality and performance.",
   openGraph: {
     title: "Sam Mejia",
-    description: "Software developer, i build digital assets for the web.",
-    images: ["https://portfolio-v2-cyan-three.vercel.app/images/og_image.png"],
+    description: "Software developer, i build digital assets for the web, focusing on quality and performance.",
+    images: ["https://portfolio-v2-cyan-three.vercel.app/images/og_image.jpg"],
   },
 };
 
