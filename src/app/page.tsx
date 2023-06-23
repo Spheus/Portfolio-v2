@@ -15,22 +15,6 @@ async function Home() {
 
   return (
     <>
-      <Head>
-        <title>Sam Mejia</title>
-        <meta property="og:title" content="Sam Mejia" />
-
-        <meta
-          name="description"
-          content="
-          Software Engineer, I build products and digital Assets for the web."
-          key="desc"
-        />
-        <meta
-          property="og:description"
-          content="Software Engineer, I build products and digital Assets for the web."
-        />
-        <meta property="og:image" content="/images/og_image.png" />
-      </Head>
       <AnimatedCanvas
         name="w-full h-screen  fixed top-0	 inset-0	z-0"
         background="transparent"

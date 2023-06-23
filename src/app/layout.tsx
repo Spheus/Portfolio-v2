@@ -6,6 +6,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Sam Mejia",
   description: "Software developer, i build digital assets for the web.",
+  openGraph: {
+    title: "Sam Mejia",
+    description: "Software developer, i build digital assets for the web.",
+    images: ["https://portfolio-v2-cyan-three.vercel.app/images/og_image.png"],
+  },
 };
 
 export default function RootLayout({
