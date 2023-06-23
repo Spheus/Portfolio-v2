@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function Header() {
   return (
-    <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+    <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col  lg:py-18">
       <Image
         className="shadow-slate-400 shadow-md sm:my-3	 rounded-full"
         src="/images/pixel_art.png"
