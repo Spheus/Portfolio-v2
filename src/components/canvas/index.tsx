@@ -2,23 +2,27 @@
 
 "use client"; // This is a client component 👈🏽
 
-import React, { useCallback, useState, useMemo, useEffect } from "react";
 import {
-  Pt,
+  Const,
+  Create,
+  CanvasForm as Form,
   Group,
   Line,
-  Create,
-  Sound,
-  CanvasForm as Form,
-  Triangle,
-  Const,
-  Geom,
-  Vec,
+  Pt
 } from "pts";
+import {
+  useCallback,
+  useLayoutEffect,
+  useState
+} from "react";
 import { PtsCanvas } from "react-pts-canvas";
 
 export const AnimatedCanvas = ({ name, background, play }) => {
   const [pts, setPts] = useState([]);
+  const [isActive, setActive] = useState(false);
+  useLayoutEffect(() => {
+    setActive(true);
+  }, []);
 
   const handleStart = useCallback(
     (bound, space) => {
@@ -79,7 +83,9 @@ export const AnimatedCanvas = ({ name, background, play }) => {
 
   return (
     <PtsCanvas
-      name={name}
+      name={`${name} transition ease-in delay-150 duration-1000  ${
+        isActive ? "opacity-1" : "opacity-0"
+      } `}
       background={background}
       play={true}
       onStart={handleStart}
